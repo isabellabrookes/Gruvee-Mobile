@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { ImageBackground, TouchableOpacity, StyleSheet } from 'react-native'
 import { Navigation } from 'react-native-navigation'
-import CardItemDetail from './components/PlaylistItemDetail/CardItemDetail'
+import PlaylistDetailsCard from './components/PlaylistDetailsCard/PlaylistDetailsCard'
 import * as StyleConstants from '@StyleConstants'
 import * as NavigationConstants from '@NavigationConstants'
 
@@ -19,7 +19,7 @@ const PlaylistItem = ({ playlistData, deleteSongFromPlaylistAction }) => {
                 source={{ uri: `${playlistData.albumArtworkUrl}` }}
                 defaultSource={defaultPlaylistBackgroundAsset}
             >
-                <CardItemDetail
+                <PlaylistDetailsCard
                     name={playlistData.name}
                     numMembers={playlistData.members.length}
                     numSongs={playlistData.songs.length}
