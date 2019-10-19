@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "baseUrl": ".",
+        "paths": {
+            "@StyleConstants/*": ["./StyleConstants.js"],
+            "@NavigationConstants/*": ["./NavigationConstants.js"],
+            "@GruveeUI/*": ["./@GruveeUI/*"],
+            "Gruvee/*": ["./*"]
+        }
+    },
+    "exclude": [
+        ".vscode",
+        "android/.gradle",
+        "android/app/build",
+        "ios/build",
+        "ios/Pods",
+        "node_modules"
+    ]
+}
