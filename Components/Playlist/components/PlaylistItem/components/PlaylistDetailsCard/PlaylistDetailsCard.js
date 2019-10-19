@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { StyleSheet } from 'react-native'
-import Card, { CardTitle, CardContent } from 'Gruvee/@GruveeUI/Card'
+import Card, { CardTitle, CardContent } from '@GruveeUI/Card'
 
 const PlaylistDetailsCard = ({ name, numMembers, numSongs }) => {
     return (

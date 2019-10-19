@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { Text, View, Image, StyleSheet } from 'react-native'
-import Card, { CardContent } from 'Gruvee/@GruveeUI/Card'
+import Card, { CardContent } from '@GruveeUI/Card'
 import * as StyleConstants from '@StyleConstants'
 
 const defaultAlbumArtworkAsset = require('Gruvee/Assets/Defaults/AlbumArtwork/default_album_cover_bg_image.png')

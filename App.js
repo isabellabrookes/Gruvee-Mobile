@@ -8,13 +8,13 @@
 
 import React from 'react'
 import { SafeAreaView, StyleSheet, View, StatusBar } from 'react-native'
+import colors from '@GruveeUI/colors'
 import Auth from './Components/Auth/Auth'
-import * as StyleConstants from '@StyleConstants'
 
 const styles = StyleSheet.create({
     body: {
         height: '100%',
-        backgroundColor: StyleConstants.BASE_BACKGROUND_COLOR,
+        backgroundColor: colors.background.default,
     },
 })
 

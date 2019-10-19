@@ -1,14 +1,19 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import SocialAuthButton from 'Gruvee/Components/Auth/SocialAuthButton'
-import { Title, Headline } from 'Gruvee/@GruveeUI/Typography'
+import { Title, Headline } from '@GruveeUI/Typography'
 import { SOCIAL_PLATFORMS } from '../../SocialConstants'
 
 const Auth = () => {
     return (
         <View style={styles.Container}>
             <View>
-                <Title>Lets Get Grüvee</Title>
+                <Headline weight="bold" style={styles.Headline}>
+                    Lets Get
+                </Headline>
+                <Title weight="bold" style={styles.Title}>
+                    Grüvee
+                </Title>
                 <Headline style={styles.SectionDetail}>
                     Let all of your wildest memes come true. Just sell your soul
                     below.
@@ -28,6 +33,12 @@ const Auth = () => {
 
 // Styles
 const styles = StyleSheet.create({
+    Headline: {
+        fontSize: 30,
+    },
+    Title: {
+        fontSize: 80,
+    },
     ButtonContainer: {
         display: 'flex',
         justifyContent: 'space-around',

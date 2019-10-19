@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigation } from 'react-native-navigation'
-import { Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
+import { Button, Typography } from '@GruveeUI'
 import * as NavigationConstants from '@NavigationConstants'
 import * as StyleConstants from '@StyleConstants'
 
@@ -30,49 +31,36 @@ const SocialAuthButton = ({ platform }) => {
     }
 
     return (
-        <TouchableOpacity
-            onPress={navigateToPlaylists}
-            style={styles.Button(platform)}
-        >
+        <Button onPress={navigateToPlaylists} style={styles.Button(platform)}>
             <Image
                 style={styles.ButtonIcon(platform)}
                 source={platform.glyphPath}
             />
-            <Text
+            <Typography
+                weight="semi-bold"
                 accessibilityLabel={`${platform.friendlyName} login button`}
                 style={styles.ButtonText(platform)}
             >
                 Log In With {platform.friendlyName}
-            </Text>
-        </TouchableOpacity>
+            </Typography>
+        </Button>
     )
 }
 
-// -- MAD PROPZ rawrsatbeards - CSS MASTER --//
 // Styles
 const styles = StyleSheet.create({
     Button: platform => ({
-        flexBasis: 44,
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minWidth: 280,
-        width: '70%',
-        borderRadius: StyleConstants.BASE_BORDER_RADIUS,
         backgroundColor: platform.color.primary,
-    }),
-    ButtonText: platform => ({
-        color: platform.color.secondary,
-        fontWeight: StyleConstants.SEMIBOLD_WEIGHT,
-        fontSize: StyleConstants.BUTTON_TEXT_SIZE_iOS,
     }),
     ButtonIcon: platform => ({
         width: platform.size.width,
         height: platform.size.height,
         marginRight: 10,
         resizeMode: 'contain',
+    }),
+    ButtonText: platform => ({
+        color: platform.color.secondary,
+        fontSize: StyleConstants.BUTTON_TEXT_SIZE_iOS,
     }),
 })
 

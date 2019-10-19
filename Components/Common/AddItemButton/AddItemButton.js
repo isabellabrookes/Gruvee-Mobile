@@ -1,18 +1,15 @@
 import React from 'react'
-import { Image, TouchableOpacity } from 'react-native'
-import { Navigation } from 'react-native-navigation'
-import * as NavigationConstants from '@NavigationConstants'
+import { IconButton } from '@GruveeUI'
 
 const addButtonAsset = require('Gruvee/Assets/Buttons/AddButton/add_button.png')
 
 const AddItemButton = ({ style, createAction, modalNavigateAction }) => {
     return (
-        <TouchableOpacity onPress={modalNavigateAction} style={style}>
-            <Image
-                source={addButtonAsset}
-                style={{ width: '100%', height: '100%' }}
-            />
-        </TouchableOpacity>
+        <IconButton
+            icon={addButtonAsset}
+            onPress={modalNavigateAction}
+            style={style}
+        />
     )
 }
 

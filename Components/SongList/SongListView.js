@@ -120,10 +120,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 50,
     },
-    Button: {
-        width: StyleConstants.ADD_BUTTON_SIZE,
-        height: StyleConstants.ADD_BUTTON_SIZE,
-    },
 })
 
 export default SongListView
