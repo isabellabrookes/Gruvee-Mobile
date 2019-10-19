@@ -31,6 +31,7 @@
                 "map": [
                     ["@StyleConstants", "./StyleConstants.js"],
                     ["@NavigationConstants", "./NavigationConstants.js"],
+                    ["@GruveeUI", "./@GruveeUI"],
                     ["Gruvee", "./"]
                 ],
                 "extensions": [".ts", ".js", ".jsx", ".json"]
