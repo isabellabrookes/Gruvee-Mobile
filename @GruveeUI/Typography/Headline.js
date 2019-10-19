@@ -2,12 +2,12 @@ import React from 'react'
 import Typography from './Typography'
 
 const Headline = ({ style, children, ...rest }) => {
-    const styles = {
+    const HeadlineStyles = {
         fontSize: 17,
         fontWeight: 600,
     }
     return (
-        <Typography style={[styles, style]} {...rest}>
+        <Typography style={[HeadlineStyles, style]} {...rest}>
             {children}
         </Typography>
     )

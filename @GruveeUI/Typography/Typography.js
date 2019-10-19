@@ -1,10 +1,11 @@
 import React from 'react'
 import { Text } from 'react-native'
+import colors from '../colors'
 
 const Typography = ({ accessibilityLabel, weight, color, style, children }) => {
-    const styles = {
+    const TypographyStyles = {
         default: {
-            color: '#E5DADA',
+            color: colors.font.default,
         },
         weight: {
             light: {
@@ -21,17 +22,17 @@ const Typography = ({ accessibilityLabel, weight, color, style, children }) => {
             },
         },
         color: {
-            primary: '#E5DADA',
-            white: '#FFFFF',
+            primary: colors.font.default,
+            white: colors.font.white,
         },
     }
     return (
         <Text
             accessibilityLabel={accessibilityLabel}
             style={[
-                styles.default,
-                styles.weight[weight],
-                styles.color[color],
+                TypographyStyles.default,
+                TypographyStyles.weight[weight],
+                TypographyStyles.color[color],
                 style,
             ]}
         >

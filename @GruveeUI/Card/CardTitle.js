@@ -2,7 +2,7 @@ import React from 'react'
 import Typography from '../Typography'
 
 const CardTitle = ({ style, children, ...rest }) => {
-    const cardTitleStyles = {
+    const CardTitleStyles = {
         fontSize: 20,
         padding: 5,
     }
@@ -10,7 +10,7 @@ const CardTitle = ({ style, children, ...rest }) => {
         <Typography
             color="white"
             weight="semi-bold"
-            style={[cardTitleStyles, style]}
+            style={[CardTitleStyles, style]}
             {...rest}
         >
             {children}
