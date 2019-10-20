@@ -8,7 +8,6 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
         width: '100%',
     },
 })

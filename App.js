@@ -7,14 +7,14 @@
  */
 
 import React from 'react'
-import { SafeAreaView, StyleSheet, View, StatusBar } from 'react-native'
+import { SafeAreaView, StyleSheet, StatusBar } from 'react-native'
 import colors from '@GruveeUI/colors'
 import Auth from './Components/Auth/Auth'
 
 const styles = StyleSheet.create({
     body: {
-        height: '100%',
         backgroundColor: colors.background.default,
+        flex: 1,
     },
 })
 
@@ -23,9 +23,7 @@ const App = () => {
         <>
             <StatusBar barStyle="light-content" />
             <SafeAreaView style={styles.body}>
-                <View>
-                    <Auth />
-                </View>
+                <Auth />
             </SafeAreaView>
         </>
     )

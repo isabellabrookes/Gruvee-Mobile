@@ -7,7 +7,7 @@ import { SOCIAL_PLATFORMS } from '../../SocialConstants'
 const Auth = () => {
     return (
         <View style={styles.Container}>
-            <View>
+            <View style={styles.WelcomeContainer}>
                 <Headline weight="bold" style={styles.Headline}>
                     Lets Get
                 </Headline>
@@ -33,29 +33,29 @@ const Auth = () => {
 
 // Styles
 const styles = StyleSheet.create({
+    Container: {
+        justifyContent: 'space-between',
+        paddingTop: 100,
+        paddingBottom: 25,
+        paddingHorizontal: 25,
+        flex: 1,
+    },
+    WelcomeContainer: {
+        flex: 4,
+    },
     Headline: {
         fontSize: 30,
     },
     Title: {
         fontSize: 80,
     },
-    ButtonContainer: {
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        height: '20%',
-    },
-    Container: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        height: '100%',
-        width: '100%',
-        paddingTop: 100,
-        paddingBottom: 25,
-        paddingHorizontal: 25,
-    },
     SectionDetail: {
         marginTop: 25,
+    },
+    ButtonContainer: {
+        flex: 1,
+        justifyContent: 'space-around',
+        alignItems: 'center',
     },
 })
 
