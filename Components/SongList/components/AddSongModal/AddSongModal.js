@@ -7,7 +7,7 @@ import {
     TextInput,
 } from 'react-native'
 
-import InputModal from 'Gruvee/Components/Common/InputModal'
+import { InputModal } from '@GruveeUI'
 import * as StyleConstants from '@StyleConstants'
 
 const AddSongModal = ({ title }) => {

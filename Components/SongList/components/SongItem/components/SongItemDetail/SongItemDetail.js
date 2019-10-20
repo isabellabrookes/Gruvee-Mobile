@@ -32,10 +32,9 @@ const SongItemDetail = ({ songData }) => {
 const styles = StyleSheet.create({
     Container: {
         flexDirection: 'row',
-        // backgroundColor: StyleConstants.SONG_LIST_ITEM_BACKGROUND_COLOR,
-        // height: StyleConstants.SONG_LIST_ITEM_DETAIL_HEIGHT,
         borderBottomStartRadius: 0,
         borderBottomEndRadius: 0,
+        margin: 0,
     },
     Image: {
         width: StyleConstants.SONG_LIST_ITEM_ALBUM_ARTWORK_SIZE,

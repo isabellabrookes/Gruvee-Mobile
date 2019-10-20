@@ -2,23 +2,12 @@ import React from 'react'
 import { Image } from 'react-native'
 import Button from './Button'
 
+import styles from './IconButton.styles'
+
 const IconButton = ({ icon, style, children, ...rest }) => {
-    const IconButtonStyle = {
-        wrapper: {
-            height: 60,
-            width: 60,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-        },
-        image: {
-            height: '100%',
-            width: '100%',
-        },
-    }
     return (
-        <Button style={[IconButtonStyle.wrapper, style]} {...rest}>
-            <Image source={icon} style={IconButtonStyle.image} />
+        <Button style={[styles.wrapper, style]} {...rest}>
+            <Image source={icon} style={styles.image} />
         </Button>
     )
 }

@@ -1,14 +1,11 @@
 import React from 'react'
 import Typography from '../Typography'
 
+import styles from './Card.styles'
+
 const CardContent = ({ style, children, ...rest }) => {
-    const CardContentStyles = {
-        fontSize: 14,
-        paddingHorizontal: 5,
-        paddingVertical: 2.5,
-    }
     return (
-        <Typography color="white" style={[CardContentStyles, style]} {...rest}>
+        <Typography color="white" style={[styles.content, style]} {...rest}>
             {children}
         </Typography>
     )

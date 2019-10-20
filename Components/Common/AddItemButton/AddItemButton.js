@@ -3,7 +3,7 @@ import { IconButton } from '@GruveeUI'
 
 const addButtonAsset = require('Gruvee/Assets/Buttons/AddButton/add_button.png')
 
-const AddItemButton = ({ style, createAction, modalNavigateAction }) => {
+const AddItemButton = ({ modalNavigateAction, style }) => {
     return (
         <IconButton
             icon={addButtonAsset}

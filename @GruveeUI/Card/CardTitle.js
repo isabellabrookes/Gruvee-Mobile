@@ -1,16 +1,14 @@
 import React from 'react'
 import Typography from '../Typography'
 
+import styles from './Card.styles'
+
 const CardTitle = ({ style, children, ...rest }) => {
-    const CardTitleStyles = {
-        fontSize: 20,
-        padding: 5,
-    }
     return (
         <Typography
             color="white"
             weight="semi-bold"
-            style={[CardTitleStyles, style]}
+            style={[styles.title, style]}
             {...rest}
         >
             {children}

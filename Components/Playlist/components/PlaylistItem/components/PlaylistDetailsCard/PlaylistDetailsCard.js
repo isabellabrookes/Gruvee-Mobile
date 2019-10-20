@@ -4,7 +4,7 @@ import Card, { CardTitle, CardContent } from '@GruveeUI/Card'
 
 const PlaylistDetailsCard = ({ name, numMembers, numSongs }) => {
     return (
-        <Card light opacity={0.8} style={styles.Container}>
+        <Card light style={styles.Container}>
             <CardTitle>{name}</CardTitle>
             <CardContent>{numMembers} Members</CardContent>
             <CardContent>{numSongs} Songs</CardContent>
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     Container: {
         width: '60%',
         margin: 15,
-        padding: 5,
+        opacity: 0.8,
     },
 })
 

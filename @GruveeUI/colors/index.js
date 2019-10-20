@@ -1,7 +1,7 @@
 const colors = {
     background: {
-        // default: '#2E282A',
-        default: '#0C0A11',
+        default: '#2E282A',
+        // default: '#0C0A11',
         card: '#1B1819',
         modal: '#1D1D1D',
     },
