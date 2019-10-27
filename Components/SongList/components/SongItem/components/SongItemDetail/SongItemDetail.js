@@ -23,6 +23,12 @@ const SongItemDetail = ({ songData }) => {
                 <CardContent style={styles.SongDetailText}>
                     {songData.album}
                 </CardContent>
+                {/* TODO: Implement some sort of scroll for long Text */}
+                <Text numberOfLines={1} style={styles.SongTitleText}>
+                    {songData.name}
+                </Text>
+                <Text style={styles.SongDetailText}>{songData.artist}</Text>
+                <Text style={styles.SongDetailText}>{songData.album}</Text>
             </View>
         </Card>
     )

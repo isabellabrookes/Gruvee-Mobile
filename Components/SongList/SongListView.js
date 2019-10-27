@@ -1,22 +1,45 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, TextInput } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { SwipeListView } from 'react-native-swipe-list-view'
 import { Navigation } from 'react-native-navigation'
 
+import spotifyMockFindResponse from 'Gruvee/Mock/spotifyMockFindResponse'
 import AddItemButton from 'Gruvee/Components/Common/AddItemButton'
 import SwipeableSongItem from './components/SwipeableSongItem/SwipeableSongItem'
 import * as StyleConstants from '@StyleConstants'
 import * as NavigationConstants from '@NavigationConstants'
+import Song from '../../lib/Song'
 
-const SongListView = ({ playlistId, songs, deleteSongFromPlaylistAction }) => {
+const SongListView = ({
+    playlistId,
+    songs,
+    addSongToPlaylistAction,
+    deleteSongFromPlaylistAction,
+}) => {
     const [songsToDisplay, setSongsToDisplay] = useState([])
-    const [songLink, setSongLink] = useState([])
-    const [songComment, setSongComment] = useState([])
 
     useEffect(() => {
         setSongsToDisplay(songs)
     }, [])
+
     // Actions
+    const addSongAction = (songLink, comment) => {
+        // TODO: Call service API to get song info from link
+        // Right not we are just going to mock it up until auth is setup
+
+        // Create song object
+        const newSong = new Song(spotifyMockFindResponse, songLink, comment)
+
+        // Set songs to display
+        setSongsToDisplay([...songsToDisplay, newSong])
+
+        // Add to playlist
+        addSongToPlaylistAction(playlistId, newSong)
+
+        // Dismiss song modal overlay
+        Navigation.dismissOverlay(NavigationConstants.ADD_SONG_MODAL_NAV_ID)
+    }
+
     const deleteItemById = id => {
         // TODO: Add some sort of promise
         // If the first filter fails, lets not do the next one
@@ -26,33 +49,6 @@ const SongListView = ({ playlistId, songs, deleteSongFromPlaylistAction }) => {
 
         // Filter out song from parent state
         deleteSongFromPlaylistAction(playlistId, id)
-    }
-
-    const generateInputModal = inputStyle => {
-        return (
-            <>
-                <TextInput
-                    placeholder="Song link"
-                    placeholderTextColor={
-                        StyleConstants.INPUT_PLACEHOLDER_FONT_COLOR
-                    }
-                    style={inputStyle}
-                    onChangeText={text => setSongLink(text)}
-                    value={songLink}
-                />
-                <TextInput
-                    placeholder="This song was p o p p i n...."
-                    placeholderTextColor={
-                        StyleConstants.INPUT_PLACEHOLDER_FONT_COLOR
-                    }
-                    editable
-                    style={inputStyle}
-                    maxLength={280}
-                    onChangeText={text => setSongComment(text)}
-                    value={songComment}
-                />
-            </>
-        )
     }
 
     const navigateToAddSongModalAction = () => {
@@ -68,7 +64,7 @@ const SongListView = ({ playlistId, songs, deleteSongFromPlaylistAction }) => {
                 },
                 passProps: {
                     title: 'Add Song',
-                    // createAction,
+                    addSongAction,
                 },
             },
         })
@@ -96,7 +92,6 @@ const SongListView = ({ playlistId, songs, deleteSongFromPlaylistAction }) => {
                 <AddItemButton
                     style={styles.Button}
                     modalNavigateAction={navigateToAddSongModalAction}
-                    // createAction={createPlaylistAction}
                 />
             </View>
         </>

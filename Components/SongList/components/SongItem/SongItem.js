@@ -1,15 +1,37 @@
 import React, { memo } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { Alert, Linking, StyleSheet, TouchableOpacity } from 'react-native'
 
 import SongItemDetail from './components/SongItemDetail/SongItemDetail'
 import SongItemCommentBar from './components/SongItemCommentBar/SongItemCommentBar'
 
 const SongItem = ({ songData }) => {
+    // Actions
+    const openSongDeepLink = platformDeepLink => {
+        Linking.canOpenURL(platformDeepLink)
+            .then(isSupported => {
+                if (!isSupported) {
+                    Alert.alert('Song is not supported 😶')
+                    return
+                }
+
+                Linking.openURL(platformDeepLink).catch(() => {
+                    Alert.alert('Unable to open song 👎')
+                })
+            })
+            .catch(() => {
+                Alert.alert('Invalid song 😐')
+            })
+    }
     return (
-        <View style={styles.Container}>
+        <TouchableOpacity
+            style={styles.Container}
+            onPress={() => {
+                openSongDeepLink(songData.platformDeepLink)
+            }}
+        >
             <SongItemDetail songData={songData} />
-            <SongItemCommentBar comments={songData.comments} />
-        </View>
+            <SongItemCommentBar songData={songData} />
+        </TouchableOpacity>
     )
 }
 

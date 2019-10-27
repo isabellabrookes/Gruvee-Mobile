@@ -1,29 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import {
-    BackHandler,
-    View,
-    StyleSheet,
-    Platform,
-    TextInput,
-} from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, TextInput } from 'react-native'
 
 import { InputModal } from '@GruveeUI'
 import * as StyleConstants from '@StyleConstants'
+import * as NavigationConstants from '@NavigationConstants'
 
-const AddSongModal = ({ title }) => {
+const AddSongModal = ({ title, addSongAction }) => {
+    const [songLink, setSongLink] = useState('')
+    const [songComment, setSongComment] = useState('')
+
     return (
-        <InputModal title={title}>
+        <InputModal
+            title={title}
+            buttonTitle="Add"
+            createAction={() => {
+                addSongAction(songLink, songComment)
+            }}
+            buttonDisabled={!songLink}
+            navigationId={NavigationConstants.ADD_SONG_MODAL_NAV_ID}
+        >
             <TextInput
                 placeholder="Song link"
                 placeholderTextColor={
                     StyleConstants.INPUT_PLACEHOLDER_FONT_COLOR
                 }
                 style={styles.SongLinkInput}
-                // onChangeText={text => setSongLink(text)}
-                // value={songLink}
+                onChangeText={text => setSongLink(text)}
+                value={songLink}
             />
             <TextInput
-                placeholder="This song was p o p p i n...."
+                placeholder="This song is..."
                 placeholderTextColor={
                     StyleConstants.INPUT_PLACEHOLDER_FONT_COLOR
                 }
@@ -31,8 +37,8 @@ const AddSongModal = ({ title }) => {
                 editable
                 style={styles.SongCommentInput}
                 maxLength={280}
-                // onChangeText={text => setSongComment(text)}
-                // value={songComment}
+                onChangeText={text => setSongComment(text)}
+                value={songComment}
             />
         </InputModal>
     )
@@ -58,6 +64,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderRadius: StyleConstants.BASE_BORDER_RADIUS,
         padding: 8,
+        textAlignVertical: 'top',
     },
 })
 

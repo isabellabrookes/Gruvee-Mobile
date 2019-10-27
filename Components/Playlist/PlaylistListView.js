@@ -21,7 +21,8 @@ const mockSongs = [
         artist: 'YaBoiAlec',
         album: 'Album of The Year',
         albumArtwork: 'SomeBadLink',
-        platformDeepLink: 'spotify://SomeDeepLink',
+        platformDeepLink:
+            'https://open.spotify.com/track/4lnmdAWAhVdmbDBEC4gy0d?si=U0nL2FaYR3Ch41m8MgtS1w',
         comments: [
             'WOW SO GOOD.',
             'This could be better...',
@@ -47,7 +48,8 @@ const mockSongs = [
         album: 'Album of The Year',
         albumArtwork:
             'https://upload.wikimedia.org/wikipedia/en/thumb/3/31/Northlane_Mesmer_artwork.jpg/220px-Northlane_Mesmer_artwork.jpg',
-        platformDeepLink: 'spotify://SomeDeepLink',
+        platformDeepLink:
+            'https://open.spotify.com/track/0jqBo5RYn008f4ZY8kPewW?si=4iZ8e7BGQoqKP1A2nxZ1tA',
         comments: ['Anothe one.', 'Another two?'],
     },
 ]
@@ -84,6 +86,7 @@ const PlaylistListView = () => {
         <SwipeablePlaylistItem
             playlistData={item}
             deletePlaylistAction={deletePlaylistAction}
+            addSongToPlaylistAction={addSongToPlaylistAction}
             deleteSongFromPlaylistAction={deleteSongFromPlaylistAction}
         />
     )
@@ -136,7 +139,7 @@ const PlaylistListView = () => {
     }, [])
 
     // Playlist Actions
-    const createPlaylistAction = playlist => {
+    const addPlaylistAction = playlist => {
         // Set State
         setPlaylist([...playlists, playlist])
     }
@@ -145,6 +148,17 @@ const PlaylistListView = () => {
         setPlaylist(
             playlists.filter(playlist => playlist.id !== playlistToDeleteId)
         )
+    }
+
+    // Song Actions
+    const addSongToPlaylistAction = (playlistId, song) => {
+        const playlistsClone = playlists.slice()
+        const playlist = playlistsClone.find(p => p.id === playlistId)
+
+        if (playlist) {
+            playlist.songs = [...playlist.songs, song]
+            setPlaylist(playlistsClone)
+        }
     }
 
     const deleteSongFromPlaylistAction = (playlistId, songId) => {
@@ -183,7 +197,8 @@ const PlaylistListView = () => {
                     },
                 },
                 passProps: {
-                    createAction: createPlaylistAction,
+                    title: 'Add Playlist',
+                    addPlaylistAction,
                 },
             },
         })
@@ -204,7 +219,6 @@ const PlaylistListView = () => {
             <View style={styles.ButtonContainer}>
                 <AddItemButton
                     style={styles.Button}
-                    createAction={createPlaylistAction}
                     modalNavigateAction={navigateToAddPlaylistModalAction}
                 />
             </View>

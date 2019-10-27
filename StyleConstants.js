@@ -37,8 +37,11 @@ export const ADD_BUTTON_SIZE = 60
 export const DELETE_SWIPE_ACTION_BG_COLOR = '#FF4747'
 
 // Modal Height
-export const MODAL_HEIGHT_ANDROID = 300
-export const MODAL_HEIGHT_iOS = 250
+export const ADD_MODAL_DEFAULT_HEIGHT = 250
+export const ADD_PLAYLIST_MODAL_HEIGHT_ANDROID = 300
+export const ADD_PLAYLIST_MODAL_HEIGHT_iOS = 250
+export const ADD_SONG_MODAL_HEIGHT_iOS = 300
+export const ADD_SONG_MODAL_HEIGHT_ANDROID = 325
 
 // Table Container Content Spacing
 export const TABLE_CONTAINER_CONTENT_SPACING = 25
@@ -47,7 +50,7 @@ export const TABLE_CONTAINER_BOTTOM_PADDING = 100
 // Song List Item Detail
 export const SONG_LIST_ITEM_BACKGROUND_COLOR = '#1B1819'
 export const SONG_LIST_ITEM_DETAIL_HEIGHT = 80
-export const SONG_LIST_ITEM_TITLE_SIZE_iOS = 22
+export const SONG_LIST_ITEM_TITLE_SIZE_iOS = 18
 export const SONG_LIST_ITEM_DETAIL_SIZE_iOS = 14
 export const SONG_LIST_ITEM_DETAIL_COLOR = '#999999'
 export const SONG_LIST_ITEM_BORDER_RADIUS = 5
